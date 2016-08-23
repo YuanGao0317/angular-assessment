@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 	validates_presence_of :title, :content
 	belongs_to :category
-	mount_base64_uploader :image, ImageUploader
+
 
 	def category_name=(category_name)
 		unless category_name.empty?
@@ -13,4 +13,5 @@ class Post < ActiveRecord::Base
 	def category_name
 		self.category ? self.category.name : ""
 	end
+
 end
