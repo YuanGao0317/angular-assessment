@@ -1,8 +1,9 @@
 angular
 	.module('app', ['ui.router'])
-	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
-            function ($stateProvider, $urlRouterProvider, $locationProvider) {
-    $urlRouterProvider.otherwise('/blog');
+	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', 
+            function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+    $urlRouterProvider.otherwise('/home');
+    $httpProvider.useApplyAsync(true);
 
 		$stateProvider
 			.state('home', {
@@ -30,7 +31,7 @@ angular
 					}
 				}
 			})
-			.state('blog.detail', {
+			.state('detail', {
 				url: '/post/:id',
 				templateUrl: 'post/templates/views/post.html',
 				controller: 'PostController as post'
