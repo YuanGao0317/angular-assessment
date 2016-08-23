@@ -11,13 +11,21 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		byebug
-		# @post = Post.create(posts_params)
 		
+		@post = Post.create(posts_params)
+		# byebug
+		base64 = Base64.encode64(params[:post][:image].read)
+		@post.image_base64 = base64
+		@post.save
+		redirect_to root_url
+	end
+
+	def show
+		@post = Post.find(params[:id])
 	end
 
 	private
 	def posts_params
-		params.require(:post).permit(:title, :content, :category_id, :category_name, :image_file)
+		params.require(:post).permit(:title, :content, :category_id, :category_name)
 	end
 end

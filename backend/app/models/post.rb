@@ -14,4 +14,5 @@ class Post < ActiveRecord::Base
 		self.category ? self.category.name : ""
 	end
 
+
 end
