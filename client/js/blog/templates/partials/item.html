@@ -4,14 +4,14 @@
          <div class="popup-call">
             <a href="assets/custom/images/blog/01.jpg" class="gallery-item"><i class="flaticon-arrows-4"></i></a>
          </div>
-         <img src="assets/custom/images/blog/thumbs/01.jpg" class="img-responsive" alt="img11"/>
+         <img data-ng-src="data:image/jpeg;base64,{{post.image_base64}}" class="img-responsive" alt="img11" height='300' width='400'/>
          <figcaption>
-            <div class="post-meta"><span>by <a href="#!">Sam Anderson</a>,</span> <span>March 16, 2015</span></div>
+            <div class="post-meta"><span>by <a href="#!">Gordon Gao</a>,</span> <span>{{post.created_at}}</span></div>
             <div class="post-header">
-               <h5><a href="blogpost.html">My Friend's new album design</a></h5>
+               <h5><a href="blogpost.html">{{post.title}}</a></h5>
             </div>
             <div class="post-entry">
-               <p>Aliquam gravida tincidunt congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</p>
+               <p>{{post.content}}</p>
             </div>
             <div class="post-tag pull-left">
                <span><a href="#branding" data-filter=".branding">Branding</a>,</span><span><a href="#design" data-filter=".design">Design</a></span>

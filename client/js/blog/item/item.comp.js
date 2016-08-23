@@ -3,8 +3,8 @@ var ItemComponent = {
 		item: '='
 	},
 	templateUrl: 'blog/templates/partials/item.html',
-	controller: function () {
-		
+	controller: function ($scope) {
+		$scope.post = this.item;
 	}
 }
 

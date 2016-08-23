@@ -1,20 +1,23 @@
-var BlogController = function($window, $http){
-	
-		this.userLoggedIn = $window.sessionStorage.getItem("userLoggedIn");
+var BlogController = function($window, $http, posts){
+		var self = this;
 
-		this.logout = function(){
-			$window.sessionStorage.setItem("userLoggedIn", false);
-			this.userLoggedIn = false;
-			$http({
-			  method: 'DELETE',
-			  url: 'http://localhost:3000/users/sign_out',
-			  dataType: 'json'
-			}).then(function successCallback(response) {
+		self.posts = posts.data;
 
-			  }, function errorCallback(response) {
+		// this.userLoggedIn = $window.sessionStorage.getItem("userLoggedIn");
+
+		// this.logout = function(){
+		// 	$window.sessionStorage.setItem("userLoggedIn", false);
+		// 	this.userLoggedIn = false;
+		// 	$http({
+		// 	  method: 'DELETE',
+		// 	  url: 'http://localhost:3000/users/sign_out',
+		// 	  dataType: 'json'
+		// 	}).then(function successCallback(response) {
+
+		// 	  }, function errorCallback(response) {
 			    
-			  });
-		};
+		// 	  });
+		// };
 
 
 }

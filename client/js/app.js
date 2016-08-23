@@ -1,6 +1,6 @@
 angular
 	.module('app', ['ui.router'])
-	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
+	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
             function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/blog');
 
@@ -23,7 +23,12 @@ angular
 			.state('blog', {
 				url: '/blog',
 				templateUrl: 'blog/templates/views/blog.html',
-				controller: 'BlogController as blog'
+				controller: 'BlogController as blog',
+				resolve:{
+					posts: function (BlogService) {
+				    return BlogService.getPosts();
+					}
+				}
 			})
 			.state('blog.detail', {
 				url: '/post/:id',
