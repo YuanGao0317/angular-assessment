@@ -2656,4 +2656,9 @@ footer {
   filter: blur(5px);
 }
 
+img.resize{
+   width:350px;
+   height:300px;
+}
+
 
