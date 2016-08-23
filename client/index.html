@@ -14,7 +14,9 @@
    <link href="assets/vendor/bootstrap/css/bootstrap.min.css"        property='stylesheet' rel="stylesheet" type="text/css" media="screen"/>
    <link href="assets/vendor/fontawesome/css/font-awesome.min.css"   property='stylesheet' rel="stylesheet" type="text/css" media="screen"/>
    <link href="assets/vendor/flaticons/flaticon.css"                 property='stylesheet' rel="stylesheet" type="text/css" media="screen"/>
-
+   <link href="assets/vendor/hover/css/hover-min.css"                property='stylesheet' rel="stylesheet" type="text/css" media="screen"/>
+   <link href="assets/vendor/wow/animate.css"                        property='stylesheet' rel="stylesheet" type="text/css" media="screen"/>
+   <link href="assets/vendor/mfp/css/magnific-popup.css"             property='stylesheet' rel="stylesheet" type="text/css" media="screen"/>
 
    <!-- Custom styles -->
    <link href="assets/custom/css/style.css"                          property='stylesheet' rel="stylesheet" type="text/css" media="screen"/>
@@ -25,12 +27,12 @@
 	<!--Pre-Loader-->
 	<!-- <div id="preloader"></div> -->
 
-	<custom-header></custom-header>
+	<!-- <custom-header></custom-header> -->
 
 
 	<div class="content-wrap" ui-view></div>
 	
-
+	<custom-footer></custom-footer>
 
 
 
@@ -43,14 +45,32 @@
 
 	<script src="assets/vendor/angular.js"            					type="text/javascript"></script>
 	<script src="assets/vendor/angular-ui-router.js"            type="text/javascript"></script>
+	<script src="assets/custom/js/custom.js"                             type="text/javascript"></script>
+	<script src="assets/vendor/imagesloaded/js/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+<script src="assets/vendor/isotope/js/isotope.pkgd.min.js"           type="text/javascript"></script>
+<script src="assets/vendor/mfp/js/jquery.magnific-popup.min.js"      type="text/javascript"></script>
+<script src="assets/vendor/circle-progress/circle-progress.js"       type="text/javascript"></script>
+<script src="assets/vendor/waypoints/waypoints.min.js"               type="text/javascript"></script>
+<script src="assets/vendor/anicounter/jquery.counterup.min.js"       type="text/javascript"></script>
+<script src="assets/vendor/owl-carousel/owl.carousel.min.js"         type="text/javascript"></script>
+<!--<script src="assets/vendor/wow/wow.min.js"                           type="text/javascript"></script>-->
+<script src="assets/vendor/pjax/jquery.pjax.js"                      type="text/javascript"></script>
 
 	<script src="js/app.js"            													type="text/javascript"></script>
+	<script src="assets/custom/js/custom.js"            				type="text/javascript"></script>
 
 	<script src="js/customHeader/customHeader.comp.js"          type="text/javascript"></script>
+	<script src="js/customFooter/customFooter.comp.js"          type="text/javascript"></script>
 	<script src="js/home/home.ctrl.js"           								type="text/javascript"></script>
 	<script src="js/resume/resume.ctrl.js"           						type="text/javascript"></script>
 	<script src="js/portfolio/portfolio.ctrl.js"           			type="text/javascript"></script>
 	<script src="js/blog/blog.ctrl.js"           								type="text/javascript"></script>
+	<script src="js/blog/item/item.comp.js"           								type="text/javascript"></script>
+	<script src="js/post/post.ctrl.js"           								type="text/javascript"></script>
+	<script src="js/post/newPost.ctrl.js"           								type="text/javascript"></script>
+	<script src="js/post/fileUpload.dir.js"           								type="text/javascript"></script>
+	<script src="js/post/services/imageProcess.srv.js"           								type="text/javascript"></script>
+	<script src="js/users/users.ctrl.js"           								type="text/javascript"></script>
 	
 </body>
 </html>

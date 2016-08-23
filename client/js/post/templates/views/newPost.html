@@ -1,0 +1,35 @@
+<div id="blog" class="inner-content">
+	<section id="page-title" class="inner-section">
+      <div class="container-fluid nopadding wow fadeInRight" data-wow-delay="0.4s" data-wow-offset="10">
+         <h2 class="font-accident-two-normal uppercase">New Post</h2>
+      </div>
+   </section>
+
+	<section class="inner-section">
+
+		<form name="form" ng-submit="newPost.save()">
+			<div class="form-group">
+		    <label for="file">File input</label>
+		    <!-- <input ng-model="newPost.image" type="file" id="file"> -->
+		    <input id="file" type="file" file-upload multiple/>
+		    <p class="help-block">Image size is better to be height='300' width='400'</p>
+		  </div>
+		  <div id="uploaded-image"></div>
+		  <br>
+		  <div class="form-group">
+		    <label for="title">Title</label>
+		    <input ng-model="newPost.title" type="text" class="form-control" id="title">
+		  </div>
+		  <div class="form-group">
+		    <label for="content">Content</label>
+		    <textarea ng-model="newPost.content" class="form-control" rows="10" id="content"></textarea>
+		  </div>
+		  
+		  
+
+		  <button type="submit" class="btn btn-default">Submit</button>
+		  <a ui-sref="blog" class="btn btn-primary">Cancel</a>
+		</form>
+		
+	</section>
+</div>
