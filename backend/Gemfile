@@ -29,6 +29,8 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'active_model_serializers'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
+gem 'carrierwave'
+gem 'carrierwave-base64'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
