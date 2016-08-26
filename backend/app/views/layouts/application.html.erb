@@ -45,13 +45,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Backend</a>
+
+        <a class="navbar-brand" href="#">Welcome, <%= current_user.email %>!</a>
+
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-<!--           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
+          <ul class="nav navbar-nav navbar-right">
+            <!-- <li><%= link_to "Link1", "/path1"  %></li>
             <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
-          </ul> -->
+            <li><%= link_to "Link3", "/path3"  %></li> -->
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          </ul>
+
         </div>
       </div>
     </div>
@@ -64,12 +68,13 @@
         </div>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
+            <h3>Welcome!</h3>
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
+              <!-- <li class="nav-header"><%= current_user.email %></li> -->
               <li><%= link_to "New Post", new_post_path %></li>
-              <li><%= link_to "Edit Profile", "/path2"  %></li>
               <li><%= link_to "New Portfolio", "/path3"  %></li>
+              <li><%= link_to "Edit Profile", "/path2"  %></li>
+              <li><%= link_to "Edit Resume", "/path3"  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

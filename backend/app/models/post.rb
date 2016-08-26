@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 	validates_presence_of :title, :content
 	belongs_to :category
-
+	has_many :comments
 
 	def category_name=(category_name)
 		unless category_name.empty?

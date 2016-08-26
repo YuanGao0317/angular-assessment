@@ -1,17 +1,17 @@
 <div id="blog" class="inner-content">
    
    <section id="page-title" class="inner-section">
-      <div class="row" ng-if="blog.userLoggedIn"> 
+<!--       <div class="row" ng-if="blog.userLoggedIn"> 
          <p>Welcome! <a href="" ng-click="blog.logout()">Logout</a></p>
-      </div>
+      </div> -->
 
-      <div class="row" ng-if="!blog.userLoggedIn">
+<!--       <div class="row" ng-if="!blog.userLoggedIn">
          <a ui-sref="login">Log in</a>
          <a ui-sref="signup">Sign up</a>
-      </div>
+      </div> -->
       <div class="container-fluid nopadding wow fadeInRight" data-wow-delay="0.4s" data-wow-offset="10">
          <h2 class="font-accident-two-normal uppercase">Blog</h2>
-         <h5 class="font-accident-one-bold uppercase subtitle">Hard-working person on the way to the success...</h5>
+         <h5 class="font-accident-one-bold uppercase subtitle">When the going gets tough, the tough get going.</h5>
          <p class="small fontcolor-medium">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id metus purus. Ut vulputate, est vel tincidunt mattis, orci neque iaculis lectus, et interdum quam felis vel tortor. Fusce ultrices dui quis nunc dignissim faucibus. Ut ac odio quis nibh viverra fringilla ac id nisi. Suspendisse tincidunt augue quis ligula cursus, non efficitur ligula faucibus. Mauris id neque maximus, tincidunt metus et, sodales nulla.
          </p>
@@ -20,25 +20,26 @@
 
    <!-- Blog Block -->
    <section class="inner-section">
-      <a ui-sref="newpost" >New Post</a>
 
       <div id="isotope-filters" class="port-filter port-filter-light text-center wow fadeInLeft" data-wow-delay="0.6s" data-wow-offset="10">
          <ul>
-            <li><a href="#all" data-filter="*">All Categories</a></li>
+            <!-- <li><a href="#all" data-filter="*">All Categories</a></li>
             <li><a href="#design" data-filter=".design">Design</a></li>
-            <li><a href="#branding" data-filter=".branding">Branding</a></li>
+            <li><a href="#branding" data-filter=".branding">Branding</a></li> -->
+            <li ng-repeat="category in blog.categories"><a href="" ng-click="blog.setCategory(category.name)">{{ category.name }}</a></li>
+ 
          </ul>
       </div>
 
       <div class="dividewhite3"></div>
 
-      <div class="grid container-fluid text-center wow " data-wow-delay="0.6s" data-wow-offset="10">
+      <div class="grid container-fluid text-center wow fadeInDown" data-wow-delay="0.6s" data-wow-offset="10">
 
          <div id="posts" class="row popup-container">
 
 
             
-               <div class="grid-item col-md-4 col-sm-6 fadeInDown" ng-repeat="post in blog.posts">
+               <div class="grid-item col-md-4 col-sm-6 fadeInDown" ng-repeat="post in blog.filteredPosts | filter:blog.categoryFilter">
                   <item item="post"> </item>
                </div>
 

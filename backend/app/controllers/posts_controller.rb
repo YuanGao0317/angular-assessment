@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 		base64 = Base64.encode64(params[:post][:image].read)
 		@post.image_base64 = base64
 		@post.save
-		redirect_to root_url
+		redirect_to root_url, notice: "Post is created!"
 	end
 
 	def show

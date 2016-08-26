@@ -2,9 +2,9 @@
 
    <section id="page-title" class="inner-section">
       <div class="container-fluid nopadding wow fadeInRight" data-wow-delay="0.4s" data-wow-offset="10">
-         <h2 class="font-accident-two-normal uppercase">MY FRIEND'S NEW ALBUM DESIGN</h2>
-         <div class="post-meta"><span>by <a href="#!">Sam Anderson</a>,</span> <span>March 16, 2015</span></div>
-         <div class="post-tag pull-left"><span><a>Branding</a>,</span><span><a>Design</a></span></div>
+         <h2 class="font-accident-two-normal uppercase">{{postdetail.post.title}}</h2>
+         <div class="post-meta"><span>by <a href="#!">Gordon Gao</a>,</span> <span>{{postdetail.formatDate(postdetail.post.created_at)}}</span></div>
+         <div class="post-tag pull-left"><span><a>{{postdetail.post.category.name}}</a></span></div>
       </div>
    </section>
 
@@ -13,25 +13,17 @@
 
       <div class="container-fluid nopadding">
 
-         <img src="assets/custom/images/blog/01.jpg" class="img-responsive wow fadeInDown" data-wow-delay="0.6s" data-wow-offset="10">
+         <img data-ng-src="data:image/jpeg;base64,{{postdetail.post.image_base64}}" class="img-responsive wow fadeInDown" data-wow-delay="0.6s" data-wow-offset="10">
 
-         <article class="post wow fadeInDown" data-wow-delay="0.6s" data-wow-offset="10">
+         <article class="post wow fadeInDown" data-wow-delay="0.3s" data-wow-offset="7">
 
             <div class="dividewhite6"></div>
 
             <!-- Post Content -->
             <p>
-               The system utilised prefabricated light gauge steel frames which could be built economically up to a maximum of 4 storeys. The frames were finished in a variety of claddings and their modular nature could be employed to produce architecturally satisfying buildings. Initially developed solely for schools, the system was also used to provide offices and housing. Important examples include many of the Hertfordshire schools, some of which have since been listed.
+               {{postdetail.post.content}}
             </p>
-            <p>
-               Another notable use of CLASP is the University of York, designed by architect Andrew Derbyshire. A later development was known as SCOLA (Second Consortium of Local Authorities) and MACE (Metropolitan Architectural Consortium for Education). The cynics' definition of the CLASP acronym, circulating in the 1970s, was "collection of loosely assembled steel parts". Langwith College, University of York. A notable use of the CLASP system. Vanbrugh College, University of York.
-            </p>
-            <p>
-               The system utilised prefabricated light gauge steel frames which could be built economically up to a maximum of 4 storeys. The frames were finished in a variety of claddings and their modular nature could be employed to produce architecturally satisfying buildings. Initially developed solely for schools, the system was also used to provide offices and housing. Important examples include many of the Hertfordshire schools, some of which have since been listed.
-            </p>
-            <p>
-               Another notable use of CLASP is the University of York, designed by architect Andrew Derbyshire. A later development was known as SCOLA (Second Consortium of Local Authorities) and MACE (Metropolitan Architectural Consortium for Education). The cynics' definition of the CLASP acronym, circulating in the 1970s, was "collection of loosely assembled steel parts". Langwith College, University of York. A notable use of the CLASP system. Vanbrugh College, University of York.
-            </p>
+            
             <!-- /Post Content -->
 
             <div class="dividewhite4"></div>
@@ -41,14 +33,14 @@
 
 
 
-         <div id="comments" class="wow fadeInDown" data-wow-delay="0.6s" data-wow-offset="10">
-            <h4 class="font-accident-one-light uppercase">4 comments:</h4>
+         <div id="comments" class="wow fadeInDown" data-wow-delay="0.0s" data-wow-offset="5">
+            <h4 class="font-accident-one-light uppercase">{{postdetail.comments.length}} comments:</h4>
 
             <div class="dividewhite4"></div>
 
             <ul class="media-list">
 
-               <li class="media">
+               <li class="media"  ng-repeat="comment in postdetail.comments">
                   <div class="media-left">
                      <a href="#">
                         <img class="media-object"  alt="64x64" src="assets/custom/images/userpic02.jpg">
@@ -56,14 +48,14 @@
                   </div>
                   <div class="media-body">
                      <div class="post-data">
-                        <div class="post-date">2014 Jun, 14</div>
-                        <div class="post-author"><a href="#">Alisia Silverstone</a></div>
+                        <div class="post-date">{{comment.created_at}}</div>
+                        <div class="post-author"><a href="#">{{comment.username}}</a></div>
                      </div>
-                     <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-                     <p><a href="#" class="btn btn-gr btn-xs">Log In to Reply</a></p>
+                     <p>{{comment.content}}</p>
+                     <!-- <p><a href="#" class="btn btn-gr btn-xs">Log In to Reply</a></p> -->
 
                      <!-- Nested media object -->
-                     <div class="media">
+                     <!-- <div class="media">
                         <div class="media-left">
                            <a href="#">
                               <img class="media-object" alt="64x64" src="assets/custom/images/userpic03.jpg">
@@ -76,7 +68,6 @@
                            </div>
                            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
                            <p><a href="#" class="btn btn-gr btn-xs">Log In to Reply</a></p>
-                           <!-- Nested media object -->
                            <div class="media">
                               <div class="media-left">
                                  <a href="#">
@@ -93,9 +84,9 @@
                               </div>
                            </div>
                         </div>
-                     </div>
+                     </div> -->
                      <!-- Nested media object -->
-                     <div class="media">
+                     <!-- <div class="media">
                         <div class="media-left">
                            <a href="#">
                               <img class="media-object" data-src="holder.js/64x64/index.html" alt="64x64" src="assets/custom/images/userpic04.jpg">
@@ -109,7 +100,7 @@
                            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
                            <p><a href="#" class="btn btn-gr btn-xs">Log In to Reply</a></p>
                         </div>
-                     </div>
+                     </div> -->
                   </div>
                </li>
             </ul>
@@ -132,20 +123,20 @@
             <form action="#" method="post" novalidate="novalidate">
                <div class="row">
                   <div class="col-md-4">
-                     <p><label>Name*</label><input type="text" name="your-name" value="" size="60" class="" aria-required="true" aria-invalid="false"></p>
+                     <p><label>Name</label><input ng-model="postdetail.commentName" type="text" name="your-name" value="" size="60" class="" aria-required="true" aria-invalid="false"></p>
                   </div>
-                  <div class="col-md-4">
+                  <!-- <div class="col-md-4">
                      <p><label>Email*</label><input type="text" name="your-email" value="" size="60" class="" aria-required="true" aria-invalid="false"></p>
-                  </div>
-                  <div class="col-md-4">
+                  </div> -->
+                  <!-- <div class="col-md-4">
                      <p><label>Website</label><input type="text" name="your-website" value="" size="60" class="" aria-required="true" aria-invalid="false"></p>
-                  </div>
+                  </div> -->
                   <div class="col-md-12">
-                     <p><label>Message</label><textarea name="your-message" cols="60" rows="3" class="" aria-invalid="false"></textarea></p>
+                     <p><label>Message</label><textarea ng-model="postdetail.commentContent" name="your-message" cols="60" rows="3" class="" aria-invalid="false"></textarea></p>
                   </div>
                </div>
                <div class="dividewhite2"></div>
-               <p><button type="button" class="btn btn-lg btn-darker">Post Comment</button></p>
+               <p><button type="button" class="btn btn-lg btn-darker" ng-click="postdetail.addComment()">Post Comment</button></p>
             </form>
          </div>
 

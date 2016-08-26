@@ -1,21 +1,21 @@
 <div class="item-wrap">
    <figure class="">
-      <div class="popup-call">
+<!--       <div class="popup-call">
          <a href="assets/custom/images/blog/01.jpg" class="gallery-item"><i class="flaticon-arrows-4"></i></a>
-      </div>
-      <img data-ng-src="data:image/jpeg;base64,{{post.image_base64}}" class="img-responsive resize" alt="img11" height='300' width='400'/>
+      </div> -->
+      <a ui-sref="postdetail({id: post.id})"><img data-ng-src="data:image/jpeg;base64,{{post.image_base64}}" class="img-responsive resize" alt="img11" height='300' width='400'/></a>
       <figcaption>
-         <div class="post-meta"><span>by <a href="#!">Gordon Gao</a>,</span> <span>{{post.created_at}}</span></div>
+         <div class="post-meta"><span>by <a href="#!">Gordon Gao</a>,</span> <span>{{formatDate(post.created_at)}}</span></div>
          <div class="post-header">
-            <h5><a href="blogpost.html">{{post.title}}</a></h5>
+            <h5><a ui-sref="postdetail({id: post.id})">{{post.title}}</a></h5>
          </div>
          <div class="post-entry">
             <p class="ellipsis">{{post.content}}</p>
          </div>
          <div class="post-tag pull-left">
-            <span><a href="#branding" data-filter=".branding">Branding</a>,</span><span><a href="#design" data-filter=".design">Design</a></span>
+            <span><a href="" data-filter=".branding">{{post.category.name}}</a>
          </div>
-         <div class="post-more-link pull-right"><a href="blogpost.html">More<i class="fa fa-long-arrow-right right"></i></a></div>
+
       </figcaption>
    </figure>
-</div>
+</div> 
