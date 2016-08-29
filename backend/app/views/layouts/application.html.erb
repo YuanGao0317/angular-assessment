@@ -46,17 +46,28 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="#">Welcome, <%= current_user.email %>!</a>
+        <% if current_user %>
+          <a class="navbar-brand" href="#">Welcome, <%= current_user.email %>!</a>
 
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <!-- <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li> -->
-            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-          </ul>
-
-        </div>
+          <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <!-- <li><%= link_to "Link1", "/path1"  %></li>
+              <li><%= link_to "Link2", "/path2"  %></li>
+              <li><%= link_to "Link3", "/path3"  %></li> -->
+              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </div>
+        <% else %>
+          <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <!-- <li><%= link_to "Link1", "/path1"  %></li>
+              <li><%= link_to "Link2", "/path2"  %></li>
+              <li><%= link_to "Link3", "/path3"  %></li> -->
+              <li><%= link_to 'Sign up', new_user_registration_path %></li>
+              <li><%= link_to 'Sign in', new_user_session_path %></li>
+            </ul>
+          </div>
+        <% end %>
       </div>
     </div>
 
@@ -70,7 +81,6 @@
           <div class="well sidebar-nav">
             <h3>Welcome!</h3>
             <ul class="nav nav-list">
-              <!-- <li class="nav-header"><%= current_user.email %></li> -->
               <li><%= link_to "New Post", new_post_path %></li>
               <li><%= link_to "New Portfolio", "/path3"  %></li>
               <li><%= link_to "Edit Profile", "/path2"  %></li>

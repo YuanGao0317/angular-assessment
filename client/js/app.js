@@ -2,7 +2,7 @@ angular
 	.module('app', ['ui.router'])
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', 
             function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-    // $urlRouterProvider.otherwise('/blog');
+    $urlRouterProvider.otherwise('/blog');
     $httpProvider.useApplyAsync(true);
 
 		$stateProvider
@@ -73,6 +73,9 @@ angular
 		var posts = [];
 
   	self.storePosts = function(posts) {
+  		$window.localStorage.removeItem("posts");
+  		$window.localStorage.setItem("posts", JSON.stringify(posts));
+
   		posts = posts;
 	    return posts;
 	  };
@@ -82,16 +85,21 @@ angular
     	var posts = posts;
     	if (posts.length > 0) {
     		return posts;
+    	} else {
+    		return $window.localStorage.getItem("posts");
     	}
-    	return [];
     };
 
     self.getPost = function(id){
-    	var posts = posts;
+    	var data = $window.localStorage.getItem("posts");
+    	var posts = JSON.parse(data);
+    	$window.localStorage.removeItem("post");
+    	console.log(data)
 
     	if (posts && posts.length > 0) {
     		for (var i = 0; i < posts.length; i++) {
     			if (posts[i].id == id) {
+
     				$window.localStorage.setItem("post", JSON.stringify(posts[i]))
     				return posts[i];
     			}

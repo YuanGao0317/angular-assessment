@@ -1,4 +1,4 @@
-var PostController = function($stateParams, GlobalFactory, postsModel, $scope, $window, $rootScope){
+var PostController = function($stateParams, GlobalFactory, postsModel, $scope, $window, $rootScope, $location){
 	// // If we got here from a url of /contacts/42
  //  expect($stateParams).toBe({contactId: "42"});
  var self = this;
@@ -8,7 +8,7 @@ var PostController = function($stateParams, GlobalFactory, postsModel, $scope, $
 
  var data = $window.localStorage.getItem("comments");
  self.comments = JSON.parse(data) || [];
- 
+ $location.hash('top');
 
  function initComment() {
 	
