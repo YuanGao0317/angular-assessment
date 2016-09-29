@@ -19,12 +19,9 @@
 
             <div class="dividewhite6"></div>
 
-            <!-- Post Content -->
             <p>
                {{postdetail.post.content}}
             </p>
-            
-            <!-- /Post Content -->
 
             <div class="dividewhite4"></div>
             <hr>
@@ -33,14 +30,14 @@
 
 
 
-         <div id="comments" class="wow fadeInDown" data-wow-delay="0.0s" data-wow-offset="5">
+         <div id="comments" class="wow fadeInDown" data-wow-delay="0.2s" data-wow-offset="5">
             <h4 class="font-accident-one-light uppercase">{{postdetail.comments.length}} comments:</h4>
 
             <div class="dividewhite4"></div>
 
             <ul class="media-list">
 
-               <li class="media"  ng-repeat="comment in postdetail.comments">
+               <li class="media"  ng-repeat="comment in postdetail.comments track by comment.id">
                   <div class="media-left">
                      <a href="#">
                         <img class="media-object"  alt="64x64" src="assets/custom/images/userpic02.jpg">
@@ -48,7 +45,7 @@
                   </div>
                   <div class="media-body">
                      <div class="post-data">
-                        <div class="post-date">{{comment.created_at}}</div>
+                        <div class="post-date">{{postdetail.formatDate(comment.created_at)}}</div>
                         <div class="post-author"><a href="#">{{comment.username}}</a></div>
                      </div>
                      <p>{{comment.content}}</p>
@@ -113,7 +110,7 @@
 
 
 
-         <div class="wow fadeInDown" data-wow-delay="0.6s" data-wow-offset="10">
+         <div class="wow fadeInDown" data-wow-delay="0.3s" data-wow-offset="10">
 
             <div id="post-comment">
                <h4 class="font-accident-one-light uppercase">Leave a Comment</h4>

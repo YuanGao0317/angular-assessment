@@ -1,17 +1,32 @@
-var PostController = function($stateParams, GlobalFactory, postsModel, $scope, $window, $rootScope, $location){
+var PostController = function($stateParams, GlobalFactory, postsModel, $window, $location, comments){
 	// // If we got here from a url of /contacts/42
  //  expect($stateParams).toBe({contactId: "42"});
  var self = this;
  var post_id = $stateParams.id;
- self.commentName = "";
- self.commentContent = "";
 
- var data = $window.localStorage.getItem("comments");
- self.comments = JSON.parse(data) || [];
- $location.hash('top');
+  // self.comments = [];
+  // self.commentName = "";
+  // self.commentContent = "";
+  // self.post = postsModel.getPost(post_id);
+   
+
+  // self.comments = comments.data
+  // console.log(self.comments)
+  // $location.hash('top');
+
+ function initCtrl(){
+  self.comments = [];
+  self.commentName = "";
+  self.commentContent = "";
+  self.post = postsModel.getPost(post_id);
+   
+
+  self.comments = comments.data
+  console.log(self.comments)
+  $location.hash('top');
+ }
 
  function initComment() {
-	
  	return {
 	 	username: "",
 	 	content: "",
@@ -20,7 +35,9 @@ var PostController = function($stateParams, GlobalFactory, postsModel, $scope, $
 	 };
  }
 
-  self.post = postsModel.getPost(post_id);
+ initCtrl()
+
+  
 
   self.addComment = function() {
   	var comment = initComment();
@@ -28,16 +45,19 @@ var PostController = function($stateParams, GlobalFactory, postsModel, $scope, $
   	comment.content = self.commentContent;
   	comment.post_id = post_id;
   	
-  	var res = postsModel.uploadComment(comment);
+  	var res = postsModel.uploadComment(post_id, comment);
   	res.success(function(data){
   		if (data.post_id) {
-  			console.log(self.comments)
+  			
   			self.comments.push(comment);
-  			$window.localStorage.setItem("comments", JSON.stringify(self.comments));
+        console.log(self.comments)
   			self.commentName = "";
 			  self.commentContent = "";
   		}
-  	});
+  	})
+    .fail(function(error) {
+      console.log(error)
+    });
   }
 
 	self.formatDate = function(date) {
