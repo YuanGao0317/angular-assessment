@@ -5,6 +5,8 @@ The idea is that I want an individual backend as the admin system, and the backe
 It is not fully functional website. 
 I add some functionalities to the 'blog' page, for instance, showing the post and adding comments. You are able to add new post in the backend after logged in.
 
+<img alt="View" src="Screenshot.png" width="700" height="380" />
+
 ## Installation
 
 cd backend
